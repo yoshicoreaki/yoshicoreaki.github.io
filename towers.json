@@ -1,0 +1,20 @@
+[
+  {
+    "id": "minigunner",
+    "name": "Minigunner",
+    "role": "DPS",
+    "stage": "Late",
+    "description": "One of the strongest DPS towers.",
+    "pros": ["High DPS", "Good vs bosses"],
+    "cons": ["Expensive", "Weak early"]
+  },
+  {
+    "id": "farm",
+    "name": "Farm",
+    "role": "Economy",
+    "stage": "All",
+    "description": "Main source of income.",
+    "pros": ["More money", "Essential"],
+    "cons": ["No damage"]
+  }
+]
