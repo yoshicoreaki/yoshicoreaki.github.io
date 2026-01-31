@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TDS Tower Guide</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: #1e293b;
+      padding: 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .card:hover {
+      background: #334155;
+      transform: scale(1.03);
+    }
+    .tag {
+      display: inline-block;
+      background: #2563eb;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Tower Defense Simulator – Towers</h1>
+
+<div class="grid">
+  <div class="card" onclick="alert('Minigunner page later')">
+    <h2>Minigunner</h2>
+    <p>High DPS late-game tower.</p>
+    <span class="tag">DPS</span>
+  </div>
+
+  <div class="card" onclick="alert('Farm page later')">
+    <h2>Farm</h2>
+    <p>Main income tower.</p>
+    <span class="tag">Economy</span>
+  </div>
+</div>
+
+</body>
+</html>
