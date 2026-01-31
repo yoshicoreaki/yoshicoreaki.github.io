@@ -1,81 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>TDS Tower Guide</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: white;
-      margin: 0;
-      padding: 20px;
-    }
-    h1 {
-      text-align: center;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 16px;
-    }
-    .card {
-      background: #1e293b;
-      padding: 16px;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-    .card:hover {
-      background: #334155;
-      transform: scale(1.03);
-    }
-    .tag {
-      display: inline-block;
-      background: #2563eb;
-      padding: 4px 8px;
-      border-radius: 6px;
-      font-size: 12px;
-      margin-top: 6px;
-    }
-  </style>
-</head>
-<body>
-
-<h1>Tower Defense Simulator – Towers</h1>
-
-<div class="grid">
-  <div class="card" onclick="alert('Minigunner page later')">
-    <h2>Minigunner</h2>
-    <p>High DPS late-game tower.</p>
-    <span class="tag">DPS</span>
-  </div>
-
-  <div class="card" onclick="alert('Farm page later')">
-    <h2>Farm</h2>
-    <p>Main income tower.</p>
-    <span class="tag">Economy</span>
-  </div>
-</div>
-
-</body>
-  <script>
-fetch('towers.json')
-  .then(res => res.json())
-  .then(data => {
-    const grid = document.querySelector('.grid');
-    grid.innerHTML = '';
-    data.forEach(tower => {
-      const div = document.createElement('div');
-      div.className = 'card';
-      div.innerHTML = `
-        <h2>${tower.name}</h2>
-        <p>${tower.description}</p>
-        <span class="tag">${tower.role}</span>
-      `;
-      grid.appendChild(div);
-    });
-  });
-</script>
-
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="slide">
+      <div class="site">
+        <div class="hueta">
+          <div class="frame"><div class="rectangle"></div></div>
+          <div class="div"></div>
+          <div class="rectangle-2"></div>
+          <div class="text-wrapper">Tower Defense Index</div>
+        </div>
+        <img class="line" src="img/line-1.svg" />
+        <div class="rectangle-wrapper"><div class="rectangle-3"></div></div>
+      </div>
+      <div class="intermediate">
+        <img class="img" src="img/rectangle-5-3.svg" />
+        <img class="rectangle-4" src="img/rectangle-9.svg" />
+        <img class="rectangle-5" src="img/rectangle-6-3.svg" />
+        <img class="rectangle-6" src="img/rectangle-7-3.svg" />
+        <img class="rectangle-7" src="img/rectangle-8-4.svg" />
+        <img class="rectangle-8" src="img/rectangle-10.svg" />
+        <img class="rectangle-9" src="img/rectangle-4-4.svg" />
+        <img class="rectangle-10" src="img/rectangle-5-2.svg" />
+        <img class="rectangle-11" src="img/rectangle-9-5.svg" />
+        <img class="rectangle-12" src="img/rectangle-6.svg" />
+        <img class="rectangle-13" src="img/rectangle-7.svg" />
+        <img class="rectangle-14" src="img/rectangle-8-2.svg" />
+        <div class="text-wrapper-2">Intermediate</div>
+      </div>
+      <div class="advanced">
+        <img class="rectangle-15" src="img/rectangle-5.svg" />
+        <img class="rectangle-16" src="img/rectangle-9-2.svg" />
+        <img class="rectangle-17" src="img/rectangle-6-2.svg" />
+        <img class="rectangle-18" src="img/rectangle-7-4.svg" />
+        <img class="rectangle-19" src="img/rectangle-8-3.svg" />
+        <img class="rectangle-20" src="img/rectangle-10-2.svg" />
+        <img class="rectangle-21" src="img/rectangle-4-3.svg" />
+        <img class="rectangle-22" src="img/rectangle-5-4.svg" />
+        <img class="rectangle-23" src="img/rectangle-9-4.svg" />
+        <img class="rectangle-24" src="img/rectangle-6-5.svg" />
+        <img class="rectangle-25" src="img/rectangle-7-2.svg" />
+        <img class="rectangle-26" src="img/rectangle-8.svg" />
+        <div class="text-wrapper-2">Advanced</div>
+      </div>
+      <div class="starter">
+        <img class="rectangle-27" src="img/rectangle-4-2.svg" />
+        <img class="rectangle-28" src="img/rectangle-5-5.svg" />
+        <img class="rectangle-29" src="img/rectangle-9-3.svg" />
+        <img class="rectangle-30" src="img/rectangle-6-4.svg" />
+        <img class="rectangle-31" src="img/image.svg" />
+        <img class="rectangle-32" src="img/rectangle-8-5.svg" />
+        <img class="rectangle-33" src="img/rectangle-4.svg" />
+      </div>
+      <div class="text-wrapper-3">Starter</div>
+      <div class="hardcore">
+        <img class="rectangle-34" src="img/rectangle-11.svg" />
+        <img class="rectangle-35" src="img/rectangle-12.svg" />
+        <img class="rectangle-36" src="img/rectangle-13-2.svg" />
+        <img class="rectangle-37" src="img/rectangle-14.svg" />
+        <img class="rectangle-38" src="img/rectangle-15-2.svg" />
+        <div class="text-wrapper-4">Hardcore</div>
+      </div>
+      <div class="hardcore-2">
+        <img class="rectangle-39" src="img/rectangle-11-2.svg" />
+        <img class="rectangle-40" src="img/rectangle-12-2.svg" />
+        <img class="rectangle-41" src="img/rectangle-13.svg" />
+        <img class="rectangle-42" src="img/rectangle-14-2.svg" />
+        <img class="rectangle-43" src="img/rectangle-15.svg" />
+        <div class="text-wrapper-5">Exclusive</div>
+      </div>
+    </div>
+  </body>
 </html>
