@@ -59,4 +59,23 @@
 </div>
 
 </body>
+  <script>
+fetch('towers.json')
+  .then(res => res.json())
+  .then(data => {
+    const grid = document.querySelector('.grid');
+    grid.innerHTML = '';
+    data.forEach(tower => {
+      const div = document.createElement('div');
+      div.className = 'card';
+      div.innerHTML = `
+        <h2>${tower.name}</h2>
+        <p>${tower.description}</p>
+        <span class="tag">${tower.role}</span>
+      `;
+      grid.appendChild(div);
+    });
+  });
+</script>
+
 </html>
