@@ -171,14 +171,18 @@ body{
 }
 
 .stat{
-  padding: 10px 12px;
-  border-radius: 14px;
   background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.08);
-  display: flex;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 14px;
+  padding: 10px 12px;
+
+  display:flex;
   justify-content: space-between;
-  align-items: center;
+  align-items:center;
+
+  min-height: 44px;
 }
+
 
 .modal__hint{
   margin-top: 10px;
@@ -260,19 +264,28 @@ body.modal-lock { overflow: hidden; }
 }
 
 .stat-big{
-  margin-top: 12px;
-  padding: 14px;
+  margin: 14px 0 10px;
+  padding: 16px;
   border-radius: 18px;
+
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.10);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   text-align: center;
 }
 
+
 .big-img{
-  width: 120px;
-  margin: 6px auto 8px;
-  display: block;
+  width: 110px;
+  margin: 4px 0 6px;
+  opacity: .95;
 }
+
 
 .big-label{
   opacity: .8;
@@ -283,5 +296,6 @@ body.modal-lock { overflow: hidden; }
   font-size: 20px;
   font-weight: 900;
   margin-top: 4px;
+  letter-spacing: .5px;
 }
 
