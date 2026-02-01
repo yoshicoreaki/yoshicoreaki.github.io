@@ -9,7 +9,6 @@ const mType = document.getElementById("mType");
 const mDmg = document.getElementById("mDmg");
 const mRange = document.getElementById("mRange");
 const mRate = document.getElementById("mRate");
-const mCost = document.getElementById("mCost");
 
 const tcLvl = document.getElementById("tcLvl");
 const tcBar = document.getElementById("tcBar");
