@@ -44,7 +44,7 @@ tcUp.addEventListener("click", () => {
 if (tcSell) {
     tcSell.addEventListener("click", () => {
         if (!current) return;
-        setLvl(current.id, 1);
+        setLvl(current.id, 0);
         renderModal(current);
     });
 }
