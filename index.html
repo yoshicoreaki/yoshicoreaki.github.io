@@ -16,16 +16,25 @@
     <h2 class="h2">Starter</h2>
 
     <div class="grid">
-<a class="card" href="#"
-   data-name="Scout"
-   data-dmg="2"
-   data-range="12"
-   data-firerate="0.8"
-   data-cost="200"
-   data-type="Ground"
-   data-img="img/towers/scout.png">
-  <img src="img/towers/scout.png" alt="Scout">
-</a>
+      <a class="card" href="#"
+         data-id="scout"
+         data-name="Scout"
+         data-type="Ground"
+         data-img="img/towers/scout.png"
+
+         data-maxlvl="5"
+         data-base-dmg="2"
+         data-base-range="12"
+         data-base-firerate="0.8"
+         data-base-cost="200"
+
+         data-inc-dmg="1"
+         data-inc-range="2"
+         data-inc-firerate="-0.05"
+         data-inc-cost="50">
+        <img src="img/towers/scout.png" alt="Scout">
+      </a>
+
 
       <a class="card" href="#"></a>
       <a class="card" href="#"></a>
@@ -72,93 +81,214 @@
       </div>
     </section>
   </main>
+
   <div class="modal" id="towerModal" aria-hidden="true">
-  <div class="modal__backdrop" data-close></div>
+    <div class="modal__backdrop" data-close></div>
 
-  <div class="modal__panel" role="dialog" aria-modal="true">
-    <button class="modal__close" data-close aria-label="Close">✕</button>
+    <div class="modal__panel" role="dialog" aria-modal="true">
+      <button class="modal__close" data-close aria-label="Close">✕</button>
 
-    <div class="modal__header">
-      <img class="modal__img" id="mImg" alt="">
-      <div>
-        <div class="modal__title" id="mName">Tower</div>
-        <div class="modal__subtitle" id="mType">Type</div>
+      <div class="modal__header">
+        <img class="modal__img" id="mImg" alt="">
+        <div>
+          <div class="modal__title" id="mName">Tower</div>
+          <div class="modal__subtitle" id="mType">Type</div>
+        </div>
+      </div>
+
+      <div class="towercard__progress">
+        <div class="lvl" id="tcLvl">LVL 0 / 5</div>
+        <div class="bar">
+          <div class="bar__fill" id="tcBar"></div>
+        </div>
+      </div>
+
+      <div class="modal__stats">
+
+        <div class="stat">
+        <span class="label">
+          <img class="ico" src="img/icons/Damage_Icon.png" alt="">
+          Damage
+        </span>
+          <b id="mDmg">-</b>
+        </div>
+
+        <div class="stat">
+        <span class="label">
+          <img class="ico" src="img/icons/Range_Icon.png" alt="">
+          Range
+        </span>
+          <b id="mRange">-</b>
+        </div>
+
+        <div class="stat">
+        <span class="label">
+          <img class="ico" src="img/icons/Cooldown_Icon.png" alt="">
+          Fire rate
+        </span>
+          <b id="mRate">-</b>
+        </div>
+
+        <div class="stat">
+        <span class="label">
+          <img class="ico" src="img/icons/Cash_Icon.png" alt="">
+          Cost
+        </span>
+          <b id="mCost">-</b>
+        </div>
+
+      </div>
+
+      <div class="towercard__actions">
+        <button class="btn" id="tcUp">UPGRADE</button>
+        <div class="next" id="tcNext"></div>
+      </div>
+
+      <div class="modal__hint">
+        Нажми ESC или кликни вне окна, чтобы закрыть
       </div>
     </div>
-
-    <div class="modal__stats">
-      <div class="stat"><span>Damage</span><b id="mDmg">-</b></div>
-      <div class="stat"><span>Range</span><b id="mRange">-</b></div>
-      <div class="stat"><span>Fire rate</span><b id="mRate">-</b></div>
-      <div class="stat"><span>Cost</span><b id="mCost">-</b></div>
-    </div>
-
-    <div class="modal__hint">Нажми ESC или кликни вне окна, чтобы закрыть</div>
   </div>
-</div>
+
+
+
 
   <script>
-  const modal = document.getElementById("towerModal");
-  const mImg = document.getElementById("mImg");
-  const mName = document.getElementById("mName");
-  const mType = document.getElementById("mType");
-  const mDmg = document.getElementById("mDmg");
-  const mRange = document.getElementById("mRange");
-  const mRate = document.getElementById("mRate");
-  const mCost = document.getElementById("mCost");
+    const modal = document.getElementById("towerModal");
 
-  function openModal(data){
-    mName.textContent = data.name || "Tower";
-    mType.textContent = data.type || "";
-    mDmg.textContent = data.dmg || "-";
-    mRange.textContent = data.range || "-";
-    mRate.textContent = data.firerate || "-";
-    mCost.textContent = data.cost || "-";
+    const mImg = document.getElementById("mImg");
+    const mName = document.getElementById("mName");
+    const mType = document.getElementById("mType");
+    const mDmg = document.getElementById("mDmg");
+    const mRange = document.getElementById("mRange");
+    const mRate = document.getElementById("mRate");
+    const mCost = document.getElementById("mCost");
 
-    if (data.img) {
-      mImg.src = data.img;
-      mImg.alt = data.name || "Tower";
-    } else {
-      mImg.removeAttribute("src");
-      mImg.alt = "";
+    const tcLvl = document.getElementById("tcLvl");
+    const tcBar = document.getElementById("tcBar");
+    const tcUp  = document.getElementById("tcUp");
+    const tcNext= document.getElementById("tcNext");
+
+    let current = null;
+
+    const num = (x, fallback=0) => {
+      const n = Number(x);
+      return Number.isFinite(n) ? n : fallback;
+    };
+
+    const key = (id) => "lvl_" + id;
+
+    function getLvl(id){ return num(localStorage.getItem(key(id)), 0); }
+    function setLvl(id, lvl){ localStorage.setItem(key(id), String(lvl)); }
+
+    function compute(d, lvl){
+      return {
+        dmg:   num(d.baseDmg) + num(d.incDmg) * lvl,
+        range: num(d.baseRange) + num(d.incRange) * lvl,
+        rate:  +(num(d.baseFirerate) + num(d.incFirerate) * lvl).toFixed(2),
+        cost:  num(d.baseCost) + num(d.incCost) * lvl
+      };
     }
 
-    modal.classList.add("is-open");
-    document.body.classList.add("modal-lock");
-    modal.setAttribute("aria-hidden", "false");
-  }
+    function render(){
+      if (!current) return;
 
-  function closeModal(){
-    modal.classList.remove("is-open");
-    document.body.classList.remove("modal-lock");
-    modal.setAttribute("aria-hidden", "true");
-  }
+      const maxLvl = num(current.maxlvl, 0);
+      let lvl = Math.min(getLvl(current.id), maxLvl);
 
-  // клик по карточкам
-  document.addEventListener("click", (e) => {
-    const card = e.target.closest(".card");
-    if (card) {
-      e.preventDefault();
-      openModal(card.dataset);
-      return;
+      const s = compute(current, lvl);
+
+      mDmg.textContent = s.dmg;
+      mRange.textContent = s.range;
+      mRate.textContent = s.rate;
+      mCost.textContent = s.cost;
+
+      tcLvl.textContent = `LVL ${lvl} / ${maxLvl}`;
+      tcBar.style.width = maxLvl ? `${(lvl / maxLvl) * 100}%` : "0%";
+
+      if (lvl >= maxLvl){
+        tcUp.disabled = true;
+        tcUp.textContent = "MAXED";
+        tcNext.textContent = "Max level reached.";
+      } else {
+        tcUp.disabled = false;
+        tcUp.textContent = "UPGRADE";
+        tcNext.textContent =
+                `Next: +${current.incDmg} dmg, +${current.incRange} range, ${current.incFirerate} rate, +${current.incCost}$`;
+      }
     }
 
-    // закрытие по backdrop/кнопке
-    if (e.target.matches("[data-close]")) {
-      closeModal();
-    }
-  });
+    function openModal(ds){
+      // ds — это card.dataset
+      current = {
+        id: ds.id || ds.name || "tower",
+        name: ds.name || "Tower",
+        type: ds.type || "",
+        img: ds.img || "",
 
-  // ESC закрывает
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.classList.contains("is-open")) {
-      closeModal();
+        maxlvl: ds.maxlvl,
+
+        baseDmg: ds.baseDmg,
+        baseRange: ds.baseRange,
+        baseFirerate: ds.baseFirerate,
+        baseCost: ds.baseCost,
+
+        incDmg: ds.incDmg,
+        incRange: ds.incRange,
+        incFirerate: ds.incFirerate,
+        incCost: ds.incCost,
+      };
+
+      mName.textContent = current.name;
+      mType.textContent = current.type;
+
+      if (current.img) {
+        mImg.src = current.img;
+        mImg.alt = current.name;
+      }
+
+      modal.classList.add("is-open");
+      document.body.classList.add("modal-lock");
+      modal.setAttribute("aria-hidden", "false");
+
+      // если уровня нет — стартуем с 0
+      if (localStorage.getItem(key(current.id)) === null) setLvl(current.id, 0);
+
+      render();
     }
-  });
-</script>
+
+    function closeModal(){
+      modal.classList.remove("is-open");
+      document.body.classList.remove("modal-lock");
+      modal.setAttribute("aria-hidden", "true");
+    }
+
+    document.addEventListener("click", (e) => {
+      const card = e.target.closest(".card");
+      if (card) {
+        e.preventDefault();
+        if (!card.dataset.name) return; // пустые не открываем
+        openModal(card.dataset);
+        return;
+      }
+      if (e.target.matches("[data-close]")) closeModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
+    });
+
+    tcUp.addEventListener("click", () => {
+      if (!current) return;
+      const maxLvl = num(current.maxlvl, 0);
+      const lvl = getLvl(current.id);
+      if (lvl >= maxLvl) return;
+      setLvl(current.id, lvl + 1);
+      render();
+    });
+  </script>
+
 
 </body>
 </html>
-
-Ч
 
