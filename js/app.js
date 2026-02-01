@@ -44,7 +44,6 @@ tcUp.addEventListener("click", () => {
 if (tcSell) {
     tcSell.addEventListener("click", () => {
         if (!current) return;
-        // SELL -> сброс до 1 уровня
         setLvl(current.id, 1);
         renderModal(current);
     });
