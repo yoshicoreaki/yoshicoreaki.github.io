@@ -1,5 +1,6 @@
 import { num, getLvl } from "./storage.js";
 import { computeStats } from "./tower.js";
+import { getStatsAtLevel } from "./tower.js";
 
 const modal = document.getElementById("towerModal");
 
@@ -44,7 +45,7 @@ export function renderModal(tower) {
     const maxLvl = num(tower.maxlvl, 0);
     const lvl = Math.min(getLvl(tower.id), maxLvl);
 
-    const s = computeStats(tower, lvl);
+    const s = getStatsAtLevel(tower, lvl);
 
     mDmg.textContent = s.dmg;
     mRange.textContent = s.range;
@@ -61,8 +62,12 @@ export function renderModal(tower) {
     } else {
         tcUp.disabled = false;
         tcUp.textContent = "UPGRADE";
-        tcNext.textContent =
-            `Next: +${tower.incDmg} dmg, +${tower.incRange} range, ${tower.incFirerate} rate, +${tower.incCost}$`;
+        const next = getStatsAtLevel(tower, lvl + 1);
+
+        tcNext.textContent = next
+            ? `Next: ${next.dmg} dmg, ${next.range} range, ${next.rate} rate`
+            : "Max level reached.";
+
     }
 
     if (tcSell) tcSell.disabled = lvl <= 1;
