@@ -167,14 +167,27 @@ body{
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.10);
   border-radius: 14px;
-  padding: 10px 12px;
+  padding: 12px 14px;
 
   display:flex;
-  justify-content: space-between;
   align-items:center;
+  justify-content: space-between;
 
-  min-height: 44px;
+  min-height: 48px;
 }
+
+.label{
+  display:flex;
+  align-items:center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.ico{
+  width: 18px;
+  height: 18px;
+}
+
 
 
 .modal__hint{
@@ -247,8 +260,8 @@ body.modal-lock { overflow: hidden; }
 
 .stats-top{
   margin-top: 14px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 10px;
 }
 
