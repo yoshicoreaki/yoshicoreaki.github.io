@@ -143,6 +143,7 @@
 
 
       <div class="towercard__actions">
+        <button class="btn" id="TcSell">SELL</button>
         <button class="btn" id="tcUp">UPGRADE</button>
         <div class="next" id="tcNext"></div>
       </div>
@@ -171,6 +172,7 @@
     const tcBar = document.getElementById("tcBar");
     const tcUp  = document.getElementById("tcUp");
     const tcNext= document.getElementById("tcNext");
+    const tcSell= document.getElementById("tcSell");
 
     let current = null;
 
@@ -254,7 +256,6 @@
       document.body.classList.add("modal-lock");
       modal.setAttribute("aria-hidden", "false");
 
-      // если уровня нет — стартуем с 0
       if (localStorage.getItem(key(current.id)) === null) setLvl(current.id, 0);
 
       render();
@@ -270,7 +271,7 @@
       const card = e.target.closest(".card");
       if (card) {
         e.preventDefault();
-        if (!card.dataset.name) return; // пустые не открываем
+        if (!card.dataset.name) return;
         openModal(card.dataset);
         return;
       }
@@ -287,6 +288,12 @@
       const lvl = getLvl(current.id);
       if (lvl >= maxLvl) return;
       setLvl(current.id, lvl + 1);
+      render();
+    });
+    tcSell.addEventListener("click", () => {
+      if (!current) return;
+      setLvl(current.id, 1);
+
       render();
     });
   </script>
