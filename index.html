@@ -72,10 +72,7 @@
       </div>
     </section>
   </main>
-</body>
-</html>
-
-<div class="modal" id="towerModal" aria-hidden="true">
+  <div class="modal" id="towerModal" aria-hidden="true">
   <div class="modal__backdrop" data-close></div>
 
   <div class="modal__panel" role="dialog" aria-modal="true">
@@ -99,4 +96,69 @@
     <div class="modal__hint">Нажми ESC или кликни вне окна, чтобы закрыть</div>
   </div>
 </div>
+
+  <script>
+  const modal = document.getElementById("towerModal");
+  const mImg = document.getElementById("mImg");
+  const mName = document.getElementById("mName");
+  const mType = document.getElementById("mType");
+  const mDmg = document.getElementById("mDmg");
+  const mRange = document.getElementById("mRange");
+  const mRate = document.getElementById("mRate");
+  const mCost = document.getElementById("mCost");
+
+  function openModal(data){
+    mName.textContent = data.name || "Tower";
+    mType.textContent = data.type || "";
+    mDmg.textContent = data.dmg || "-";
+    mRange.textContent = data.range || "-";
+    mRate.textContent = data.firerate || "-";
+    mCost.textContent = data.cost || "-";
+
+    if (data.img) {
+      mImg.src = data.img;
+      mImg.alt = data.name || "Tower";
+    } else {
+      mImg.removeAttribute("src");
+      mImg.alt = "";
+    }
+
+    modal.classList.add("is-open");
+    document.body.classList.add("modal-lock");
+    modal.setAttribute("aria-hidden", "false");
+  }
+
+  function closeModal(){
+    modal.classList.remove("is-open");
+    document.body.classList.remove("modal-lock");
+    modal.setAttribute("aria-hidden", "true");
+  }
+
+  // клик по карточкам
+  document.addEventListener("click", (e) => {
+    const card = e.target.closest(".card");
+    if (card) {
+      e.preventDefault();
+      openModal(card.dataset);
+      return;
+    }
+
+    // закрытие по backdrop/кнопке
+    if (e.target.matches("[data-close]")) {
+      closeModal();
+    }
+  });
+
+  // ESC закрывает
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("is-open")) {
+      closeModal();
+    }
+  });
+</script>
+
+</body>
+</html>
+
+Ч
 
