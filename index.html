@@ -16,9 +16,16 @@
     <h2 class="h2">Starter</h2>
 
     <div class="grid">
-      <a class="card" href="#">
-        <img src="img/towers/scout.png" alt="Scout Tower">
-      </a>
+<a class="card" href="#"
+   data-name="Scout"
+   data-dmg="2"
+   data-range="12"
+   data-firerate="0.8"
+   data-cost="200"
+   data-type="Ground"
+   data-img="img/towers/scout.png">
+  <img src="img/towers/scout.png" alt="Scout">
+</a>
 
       <a class="card" href="#"></a>
       <a class="card" href="#"></a>
@@ -67,3 +74,29 @@
   </main>
 </body>
 </html>
+
+<div class="modal" id="towerModal" aria-hidden="true">
+  <div class="modal__backdrop" data-close></div>
+
+  <div class="modal__panel" role="dialog" aria-modal="true">
+    <button class="modal__close" data-close aria-label="Close">✕</button>
+
+    <div class="modal__header">
+      <img class="modal__img" id="mImg" alt="">
+      <div>
+        <div class="modal__title" id="mName">Tower</div>
+        <div class="modal__subtitle" id="mType">Type</div>
+      </div>
+    </div>
+
+    <div class="modal__stats">
+      <div class="stat"><span>Damage</span><b id="mDmg">-</b></div>
+      <div class="stat"><span>Range</span><b id="mRange">-</b></div>
+      <div class="stat"><span>Fire rate</span><b id="mRate">-</b></div>
+      <div class="stat"><span>Cost</span><b id="mCost">-</b></div>
+    </div>
+
+    <div class="modal__hint">Нажми ESC или кликни вне окна, чтобы закрыть</div>
+  </div>
+</div>
+
