@@ -9,9 +9,9 @@
 </head>
 
 <body>
-  <header class="top">
-    <div class="title">Tower Defense Index</div>
-  </header>
+<header class="top">
+  <div class="title">Tower Defense Index</div>
+</header>
 
 <main class="wrap">
   <section class="section">
@@ -47,115 +47,124 @@
     </div>
   </section>
 
-    <section class="section">
-      <h2 class="h2">Intermediate</h2>
-      <div class="grid">
-        <a class="card" href="#"></a><a class="card" href="#"></a><a class="card" href="#"></a>
-        <a class="card" href="#"></a><a class="card" href="#"></a><a class="card" href="#"></a>
-        <a class="card" href="#"></a><a class="card" href="#"></a><a class="card" href="#"></a>
-        <a class="card" href="#"></a><a class="card" href="#"></a><a class="card" href="#"></a>
+  <section class="section">
+    <h2 class="h2">Intermediate</h2>
+    <div class="grid">
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="h2">Advanced</h2>
+    <div class="grid">
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="h2 hardcore">Hardcore</h2>
+    <div class="grid grid-5">
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+      <a class="card" href="#"></a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="h2 exclusive">Exclusive</h2>
+    <div class="grid grid-5">
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+      <a class="card" href="#"></a><a class="card" href="#"></a>
+    </div>
+  </section>
+</main>
+
+<div class="modal" id="towerModal" aria-hidden="true">
+  <div class="modal__backdrop" data-close>
+  </div>
+
+  <div class="modal__panel" role="dialog" aria-modal="true">
+    <button class="modal__close" data-close aria-label="Close">✕</button>
+
+    <div class="modal__header">
+      <img class="modal__img" id="mImg" alt="">
+      <div>
+        <div class="modal__title" id="mName">Tower
+        </div>
+        <div class="modal__subtitle" id="mType">Type
+        </div>
       </div>
-    </section>
-
-    <section class="section">
-      <h2 class="h2">Advanced</h2>
-      <div class="grid">
-        <a class="card" href="#"></a><a class="card" href="#"></a><a class="card" href="#"></a>
-        <a class="card" href="#"></a><a class="card" href="#"></a><a class="card" href="#"></a>
-        <a class="card" href="#"></a><a class="card" href="#"></a><a class="card" href="#"></a>
-        <a class="card" href="#"></a><a class="card" href="#"></a><a class="card" href="#"></a>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="h2 hardcore">Hardcore</h2>
-      <div class="grid grid-5">
-        <a class="card" href="#"></a><a class="card" href="#"></a><a class="card" href="#"></a>
-        <a class="card" href="#"></a><a class="card" href="#"></a>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="h2 exclusive">Exclusive</h2>
-      <div class="grid grid-5">
-        <a class="card" href="#"></a><a class="card" href="#"></a><a class="card" href="#"></a>
-        <a class="card" href="#"></a><a class="card" href="#"></a>
-      </div>
-    </section>
-  </main>
-
-  <div class="modal" id="towerModal" aria-hidden="true">
-    <div class="modal__backdrop" data-close>
-
     </div>
 
-    <div class="modal__panel" role="dialog" aria-modal="true">
-      <button class="modal__close" data-close aria-label="Close">✕</button>
-
-      <div class="modal__header">
-        <img class="modal__img" id="mImg" alt="">
-        <div>
-          <div class="modal__title" id="mName">Tower
-          </div>
-          <div class="modal__subtitle" id="mType">Type
-          </div>
-        </div>
+    <div class="towercard__progress">
+      <div class="lvl" id="tcLvl">LVL 0 / 5</div>
+      <div class="bar">
+        <div class="bar__fill" id="tcBar"></div>
       </div>
+    </div>
 
-      <div class="towercard__progress">
-        <div class="lvl" id="tcLvl">LVL 0 / 5</div>
-        <div class="bar">
-          <div class="bar__fill" id="tcBar"></div>
-        </div>
-      </div>
+    <div class="stats-top">
 
-      <div class="stats-top">
-
-        <div class="stat">
+      <div class="stat">
     <span class="label">
       <img class="ico" src="img/icons/Damage_Icon.png" alt="">
       Damage
     </span>
-          <b id="mDmg">-</b>
-        </div>
+        <b id="mDmg">-</b>
+      </div>
 
-        <div class="stat">
+      <div class="stat">
     <span class="label">
       <img class="ico" src="img/icons/Range_Icon.png" alt="">
       Range
     </span>
-          <b id="mRange">-</b>
-        </div>
+        <b id="mRange">-</b>
+      </div>
 
-        <div class="stat">
+      <div class="stat">
     <span class="label">
       <img class="ico" src="img/icons/Cooldown_Icon.png" alt="">
       Fire rate
     </span>
-          <b id="mRate">-</b>
-        </div>
-        <div class="stat">
+        <b id="mRate">-</b>
+      </div>
+      <div class="stat">
   <span class="label">
     <img class="ico" src="img/icons/Cash_Icon.png" alt="">
     Cost
   </span>
-          <b id="mCost">-</b>
-        </div>
-
-
+        <b id="mCost">-</b>
       </div>
 
-      <div class="towercard__actions">
-        <button class="btn" id="tcSell">SELL</button>
-        <button class="btn" id="tcUp">UPGRADE</button>
-        <div class="next" id="tcNext"></div>
-      </div>
 
-      <div class="modal__hint">
-        Нажми ESC или кликни вне окна, чтобы закрыть
-      </div>
+    </div>
+
+    <div class="towercard__actions">
+      <button class="btn" id="tcSell">SELL</button>
+      <button class="btn" id="tcUp">UPGRADE</button>
+      <div class="next" id="tcNext"></div>
     </div>
   </div>
+</div>
 
 <script type="module" src="js/app.js"></script>
 

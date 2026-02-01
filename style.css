@@ -57,7 +57,7 @@ body{
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 18px;
 }
-.grid-5{ grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.grid-5{ grid-template-columns: repeat(6, minmax(0, 1fr)); }
 
 
 @media (max-width: 700px){
@@ -73,7 +73,7 @@ body{
   border-radius: 18px;
   background: #4029c0;
 
-  overflow: hidden; 
+  overflow: hidden;
   cursor: pointer;
   transition: transform .15s ease, box-shadow .15s ease;
 }
