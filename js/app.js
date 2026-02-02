@@ -6,7 +6,7 @@ let current = null;
 
 const modal = document.getElementById("towerModal");
 const tcUp  = document.getElementById("tcUp");
-const tcSell= document.getElementById("tcSell"); // если есть
+const tcSell= document.getElementById("tcSell");
 
 function openTower(ds) {
     current = normalizeTower(ds);

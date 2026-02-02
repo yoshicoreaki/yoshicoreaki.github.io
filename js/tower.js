@@ -29,5 +29,12 @@ export const TOWER_LEVELS = {
     { dmg: 2,  range: 14, rate: 0.808, cost: 200 },
     { dmg: 6,  range: 14, rate: 0.708, cost: 950 },
     { dmg: 8,  range: 16, rate: 0.358, cost: 2500 }
+  ],
+  Sniper: [
+    { dmg: 4, range: 27.5, rate: 4.008, cost: 300 },
+    { dmg: 6, range: 27.5, rate: 3.508, cost: 150 },
+    { dmg: 12, range: 32.5, rate: 3.508, cost: 500 },
+    { dmg: 30, range: 35, rate: 3.508, cost: 1500 },
+    { dmg: 40, range: 40, rate: 2.008, cost: 4000 }
   ]
 };
