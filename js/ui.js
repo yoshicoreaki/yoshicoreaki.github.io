@@ -10,6 +10,7 @@ const mType = document.getElementById("mType");
 const mDmg = document.getElementById("mDmg");
 const mRange = document.getElementById("mRange");
 const mRate = document.getElementById("mRate");
+const mCost = document.getElementById("mCost");
 
 const tcLvl = document.getElementById("tcLvl");
 const tcBar = document.getElementById("tcBar");
@@ -71,4 +72,11 @@ export function renderModal(tower) {
     }
 
     if (tcSell) tcSell.disabled = lvl <= 1;
+    const s = getStatsAtLevel(tower, lvl);
+
 }
+const s = getStatsAtLevel(tower, lvl);
+mDmg.textContent = s.dmg;
+mRange.textContent = s.range;
+mRate.textContent = s.rate;
+mCost.textContent = s.cost;
