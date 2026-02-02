@@ -10,7 +10,6 @@ export function normalizeTower(ds) {
     type: ds.type,
     img: ds.img,
 
-    // maxlvl лучше из таблицы (памяти)
     maxlvl: levels.length ? maxFromTable : num(ds.maxlvl, 0),
 
     levels
@@ -25,11 +24,10 @@ export function getStatsAtLevel(tower, lvl) {
 
 export const TOWER_LEVELS = {
   Scout: [
-    { dmg: 2,  range: 12, rate: 0.80, cost: 200 },
-    { dmg: 3,  range: 13, rate: 0.75, cost: 250 },
-    { dmg: 4,  range: 14, rate: 0.70, cost: 350 },
-    { dmg: 6,  range: 16, rate: 0.65, cost: 500 },
-    { dmg: 8,  range: 18, rate: 0.60, cost: 700 },
-    { dmg: 10, range: 20, rate: 0.55, cost: 950 }
+    { dmg: 1,  range: 12, rate: 1.108, cost: 150 },
+    { dmg: 1,  range: 12, rate: 0.808, cost: 50 },
+    { dmg: 2,  range: 14, rate: 0.808, cost: 200 },
+    { dmg: 6,  range: 14, rate: 0.708, cost: 950 },
+    { dmg: 8,  range: 16, rate: 0.358, cost: 2500 }
   ]
 };

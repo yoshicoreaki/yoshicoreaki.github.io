@@ -1,5 +1,4 @@
 import { num, getLvl } from "./storage.js";
-import { computeStats } from "./tower.js";
 import { getStatsAtLevel } from "./tower.js";
 
 const modal = document.getElementById("towerModal");
@@ -16,7 +15,7 @@ const tcLvl = document.getElementById("tcLvl");
 const tcBar = document.getElementById("tcBar");
 const tcUp  = document.getElementById("tcUp");
 const tcNext= document.getElementById("tcNext");
-const tcSell= document.getElementById("tcSell"); // если есть
+const tcSell= document.getElementById("tcSell");
 
 export function openModalUI(tower) {
     mName.textContent = tower.name;
@@ -43,40 +42,31 @@ export function isOpen() {
 }
 
 export function renderModal(tower) {
-    const maxLvl = num(tower.maxlvl, 0);
-    const lvl = Math.min(getLvl(tower.id), maxLvl);
+  const maxLvl = num(tower.maxlvl, 0);
+  const lvl = Math.min(getLvl(tower.id), maxLvl);
 
-    const s = getStatsAtLevel(tower, lvl);
+  const s = getStatsAtLevel(tower, lvl);
 
-    mDmg.textContent = s.dmg;
-    mRange.textContent = s.range;
-    mRate.textContent = s.rate;
-    mCost.textContent = s.cost;
+  mDmg.textContent = s.dmg;
+  mRange.textContent = s.range;
+  mRate.textContent = s.rate;
+  mCost.textContent = s.cost;
 
-    tcLvl.textContent = `LVL ${lvl} / ${maxLvl}`;
-    tcBar.style.width = maxLvl ? `${(lvl / maxLvl) * 100}%` : "0%";
+  tcLvl.textContent = `LVL ${lvl} / ${maxLvl}`;
+  tcBar.style.width = maxLvl ? `${(lvl / maxLvl) * 100}%` : "0%";
 
-    if (lvl >= maxLvl) {
-        tcUp.disabled = true;
-        tcUp.textContent = "MAXED";
-        tcNext.textContent = "Max level reached.";
-    } else {
-        tcUp.disabled = false;
-        tcUp.textContent = "UPGRADE";
-        const next = getStatsAtLevel(tower, lvl + 1);
+  if (lvl >= maxLvl) {
+    tcUp.disabled = true;
+    tcUp.textContent = "MAXED";
+    tcNext.textContent = "Max level reached.";
+  } else {
+    tcUp.disabled = false;
+    tcUp.textContent = "UPGRADE";
+    const next = getStatsAtLevel(tower, lvl + 1);
+    tcNext.textContent = next
+      ? `Next: ${next.dmg} dmg, ${next.range} range, ${next.rate} rate`
+      : "Max level reached.";
+  }
 
-        tcNext.textContent = next
-            ? `Next: ${next.dmg} dmg, ${next.range} range, ${next.rate} rate`
-            : "Max level reached.";
-
-    }
-
-    if (tcSell) tcSell.disabled = lvl <= 1;
-    const s = getStatsAtLevel(tower, lvl);
-
+  if (tcSell) tcSell.disabled = lvl <= 1;
 }
-const s = getStatsAtLevel(tower, lvl);
-mDmg.textContent = s.dmg;
-mRange.textContent = s.range;
-mRate.textContent = s.rate;
-mCost.textContent = s.cost;
