@@ -22,7 +22,6 @@ export function getStatsAtLevel(tower, lvl) {
     };
 }
 
-/* 🔥 JSON уровней */
 export const TOWER_LEVELS = {
     Scout: [
         { dmg: 2,  range: 12, rate: 0.80, cost: 200 },
