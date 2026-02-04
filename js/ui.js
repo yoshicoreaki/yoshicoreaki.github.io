@@ -1,4 +1,4 @@
- import { num, getLvl } from "./storage.js";
+import { num, getLvl } from "./storage.js";
 import { getStatsAtLevel } from "./tower.js";
 
 const modal = document.getElementById("towerModal");
@@ -18,35 +18,31 @@ const tcNext= document.getElementById("tcNext");
 const tcSell= document.getElementById("tcSell");
 
 export function openModalUI(tower) {
-    mName.textContent = tower.name;
-    mType.textContent = tower.type;
+  mName.textContent = tower.name || "Tower";
+  mType.textContent = tower.type || "Type";
 
-    if (tower.img) {
-        mImg.src = tower.img;
-        mImg.alt = tower.name || "";
-        } else{
-            mImg.removeattribute("src");
-            m.Img.alt = tower.name || "";
-        }
-        const maxlvl = num(tower.maxlvl, 0);
-        const lvl = Math.min(getLvl(tower.id), maxlvl);
-        const s = getStatsAtLvl(tower, lvl);
-        
-    }
+  // ✅ ставимо фото або чистимо, щоб не лишалось Scout
+  if (tower.img) {
+    mImg.src = tower.img;
+    mImg.alt = tower.name || "";
+  } else {
+    mImg.removeAttribute("src");
+    mImg.alt = tower.name || "";
+  }
 
-    modal.classList.add("is-open");
-    document.body.classList.add("modal-lock");
-    modal.setAttribute("aria-hidden", "false");
+  modal.classList.add("is-open");
+  document.body.classList.add("modal-lock");
+  modal.setAttribute("aria-hidden", "false");
 }
 
 export function closeModalUI() {
-    modal.classList.remove("is-open");
-    document.body.classList.remove("modal-lock");
-    modal.setAttribute("aria-hidden", "true");
+  modal.classList.remove("is-open");
+  document.body.classList.remove("modal-lock");
+  modal.setAttribute("aria-hidden", "true");
 }
 
 export function isOpen() {
-    return modal.classList.contains("is-open");
+  return modal.classList.contains("is-open");
 }
 
 export function renderModal(tower) {
