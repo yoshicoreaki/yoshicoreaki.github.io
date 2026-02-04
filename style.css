@@ -49,9 +49,13 @@ body{
   font-size: 28px;
   font-weight: 800;
 }
+.h2.intermediate{ color:#00ff22; }
+.h2.advanced{ color:#00d8ff; }
 .h2.hardcore{ color:#b600ff; }
-.h2.exclusive{ color:#ff0000; }
 .h2.goldenperks{ color:#ffb800; }
+.h2.exclusive{ color:#ff0000; }
+
+
 
 .grid{
   display: grid;
