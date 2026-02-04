@@ -51,6 +51,7 @@ body{
 }
 .h2.hardcore{ color:#b600ff; }
 .h2.exclusive{ color:#ff0000; }
+.h2.goldenperks{ color:#ffb800; }
 
 .grid{
   display: grid;

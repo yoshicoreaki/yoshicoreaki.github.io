@@ -21,7 +21,6 @@ export function openModalUI(tower) {
   mName.textContent = tower.name || "Tower";
   mType.textContent = tower.type || "Type";
 
-  // ✅ ставимо фото або чистимо, щоб не лишалось Scout
   if (tower.img) {
     mImg.src = tower.img;
     mImg.alt = tower.name || "";
