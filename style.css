@@ -182,7 +182,7 @@ body{
   align-items:center;
   gap: 10px;
   font-weight: 700;
-  flex: 1;                 /* ✅ занимает всю левую часть */
+  flex: 1;                 
   min-width: 0;
 }
 
