@@ -1,4 +1,4 @@
-import { num, getLvl } from "./storage.js";
+ import { num, getLvl } from "./storage.js";
 import { getStatsAtLevel } from "./tower.js";
 
 const modal = document.getElementById("towerModal");
@@ -23,7 +23,15 @@ export function openModalUI(tower) {
 
     if (tower.img) {
         mImg.src = tower.img;
-        mImg.alt = tower.name;
+        mImg.alt = tower.name || "";
+        } else{
+            mImg.removeattribute("src");
+            m.Img.alt = tower.name || "";
+        }
+        const maxlvl = num(tower.maxlvl, 0);
+        const lvl = Math.min(getLvl(tower.id), maxlvl);
+        const s = getStatsAtLvl(tower, lvl);
+        
     }
 
     modal.classList.add("is-open");
