@@ -331,7 +331,7 @@ export const TOWER_LEVELS = {
         { dmg: 20, range: 21, rate: 0.308, cost: 55320 }
       ]
     }
-  ],
+  },
   "Golden Minigunner": [
     { dmg: 2, range: 16, rate: 0.128, cost: 2000 },
     { dmg: 2, range: 16, rate: 0.108, cost: 250 },
