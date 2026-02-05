@@ -16,6 +16,28 @@ const tcBar = document.getElementById("tcBar");
 const tcUp  = document.getElementById("tcUp");
 const tcNext= document.getElementById("tcNext");
 const tcSell= document.getElementById("tcSell");
+const tcDetect = document.getElementById("tcDetect");
+
+const DETECT_ICONS = {
+  hidden: "img/icons/hidden_detection.png",
+  lead: "img/icons/lead_detection.png",
+  flying: "img/icons/flying_detection.png"
+};
+
+function parseDetection(raw) {
+  if (!raw) return {};
+  const out = {};
+  raw.split(",").forEach((part) => {
+    const trimmed = part.trim();
+    if (!trimmed) return;
+    const [type, lvl] = trimmed.split(":");
+    const key = (type || "").trim().toLowerCase();
+    if (!key) return;
+    const n = Number.parseInt((lvl || "").trim(), 10);
+    out[key] = Number.isFinite(n) ? n : 1;
+  });
+  return out;
+}
 
 export function openModalUI(tower) {
   mName.textContent = tower.name || "Tower";
@@ -72,4 +94,20 @@ export function renderModal(tower) {
   }
 
   if (tcSell) tcSell.disabled = lvl <= 1;
+
+  if (tcDetect) {
+    tcDetect.innerHTML = "";
+    const detection = parseDetection(tower.detection);
+    Object.keys(detection).forEach((type) => {
+      const req = detection[type];
+      if (lvl < req) return;
+      const src = DETECT_ICONS[type];
+      if (!src) return;
+      const img = document.createElement("img");
+      img.className = "detect__ico";
+      img.src = src;
+      img.alt = `${type} detection`;
+      tcDetect.appendChild(img);
+    });
+  }
 }

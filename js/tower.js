@@ -9,6 +9,7 @@ export function normalizeTower(ds) {
     name: ds.name,
     type: ds.type,
     img: ds.img,
+    detection: ds.detection,
 
     maxlvl: levels.length ? maxFromTable : num(ds.maxlvl, 0),
 

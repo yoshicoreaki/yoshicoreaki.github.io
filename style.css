@@ -12,6 +12,11 @@ body{
   background: var(--bg);
   color:#fff;
 }
+.wrap{
+  max-width: 980px;
+  margin: 18px auto 120px;
+  padding: 0 16px 120px;
+}
 
 .top{
   position: sticky;
@@ -248,8 +253,8 @@ body.modal-lock { overflow: hidden; }
   margin-top: 10px;
   display:flex;
   align-items:center;
-  justify-content: space-between;
-  gap: 12px;
+  justify-content: flex-start;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
@@ -271,6 +276,21 @@ body.modal-lock { overflow: hidden; }
 .next{
   font-size: 12px;
   opacity: .75;
+  margin-left: auto;
+}
+
+.detect{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 4px;
+}
+
+.detect__ico{
+  width: 18px;
+  height: 18px;
+  opacity: .95;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.35));
 }
 
 .stats-top{
