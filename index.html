@@ -685,6 +685,18 @@
   </div>
 </div>
 
+<script>
+window.onerror = function (msg, url, line, col, err) {
+  alert("ERROR: " + msg + "\n" + (line||"?") + ":" + (col||"?"));
+};
+
+window.onunhandledrejection = function (e) {
+  let r = e && e.reason;
+  let text = (r && (r.message || r.stack || String(r))) || String(r);
+  alert("REJECTION: " + text);
+};
+</script>
+
 <script type="module" src="js/app.js"></script>
 
 </body>
