@@ -1,0 +1,279 @@
+:root {
+    --bg: #000000;
+    --panel: #000000;
+    --card
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, 'Times New Roman', Times, serif;
+    background: var(--bg);
+    color: #fff;
+}
+
+.wrap {
+    max-width: 980px;
+    margin: 18px auto 120px;
+    padding: 0 16px 120px;
+}
+
+.top {
+    position: sticky;
+    top: 0;
+    padding: 12px 16px;
+    background: rgba(0, 0, 0, .25);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+.title {
+    margin: 0 auto;
+    max-width: 980px;
+    background: var(--card2);
+    color: #ffffff;
+    text-align: center;
+    font-weight: 800;
+    font-style: italic;
+    border-radius: 8px;
+    padding: 6px 10px;
+}
+
+.wrap {
+    max-width: 980px;
+    margin: 18px auto 60px;
+    padding: 0 16px;
+}
+
+.section {
+    margin: 24px 0 30px;
+    padding-top: 8px;
+}
+
+.h2 {
+    margin: 0 0 14px;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.h2.intermediate {
+    color: #00ff22;
+}
+
+.h2.advanced {
+    color: #00d8ff;
+}
+
+.h2.hardcore {
+    color: #b600ff;
+}
+
+.h2.goldenperks {
+    color: #ffb800;
+}
+
+.h2.exclusive {
+    color: #ff0000;
+}
+
+
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.grid-5 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+
+@media (max-width: 700px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+    }
+
+    .grid-5 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    aspect-ratio: 1 / 1;
+    border-radius: 18px;
+    background: #4029c0;
+
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(64, 41, 192, .6);
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    z-index: 999;
+}
+
+.modal.is-open {
+    display: block;
+}
+
+.modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .55);
+    opacity: 0;
+    transition: opacity .18s ease;
+}
+
+.modal__panel {
+    position: absolute;
+    left: 50%;
+    top: 12vh;
+    transform: translateX(-50%) translateY(10px) scale(.98);
+    width: min(560px, calc(100vw - 24px));
+    border-radius: 18px;
+    background: rgba(15, 23, 50, .98);
+    border: 1px solid rgba(255, 255, 255, .10);
+    box-shadow: 0 20px 80px rgba(0, 0, 0, .55);
+    padding: 14px 14px 12px;
+    opacity: 0;
+    transition: transform .18s ease, opacity .18s ease;
+}
+
+.modal.is-open .modal__backdrop {
+    opacity: 1;
+}
+
+.modal.is-open .modal__panel {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+}
+
+.modal__close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .08);
+    color: #fff;
+    cursor: pointer;
+}
+
+.modal__header {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding-right: 40px;
+}
+
+.modal__img {
+    width: 72px;
+    height: 72px;
+    border-radius: 14px;
+    object-fit: cover;
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(255, 255, 255, .10);
+}
+
+.modal__title {
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.modal__subtitle {
+    opacity: .85;
+    margin-top: 2px;
+}
+
+.stat {
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(255, 255, 255, .10);
+    border-radius: 14px;
+
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 0;
+}
+
+
+.label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    flex: 1;
+    min-width: 0;
+}
+
+.stat b {
+    font-weight: 900;
+    font-size: 16px;
+    margin-left: 12px;
+}
+
+
+.ico {
+    width: 18px;
+    height: 18px;
+}
+
+
+
+.modal__hint {
+    margin-top: 10px;
+    opacity: .7;
+    font-size: 13px;
+}
+
+
+body.modal-lock {
+    overflow: hidden;
+}
+
+.towercard__progress {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lvl {
+    font-weight: 900;
+    opacity: .9;
+    white-space: nowrap;
+}
+
+.detect__ico {
+    width: 18px;
+    height: 18px;
+    opacity: .95;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .35));
+}
