@@ -1,14 +1,14 @@
 :root{
-  --bg: #0f172a;
-  --panel: #0f1732;
-  --card: #4029c0;
-  --card2: #2e00fc;
+  --bg: #17086b;
+  --panel: #ffffff;
 }
 
-*{ box-sizing: border-box; }
+*{ box-sizing: border-box; 
+}
+
 body{
   margin:0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-family: system-ui, -apple-system, 'Times New Roman', Times, serif;
   background: var(--bg);
   color:#fff;
 }
