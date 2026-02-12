@@ -85,11 +85,11 @@ export const TOWER_LEVELS = {
     { dmg: 8, range: 22, rate: 0.108, cost: 4600 }
   ],
   Shotgunner: [
-    { dmg: "1x8", range: 7.5, rate: 2.008, cost: 400 },
-    { dmg: "1x8", range: 7.5, rate: 1.508, cost: 150 },
-    { dmg: "2x10", range: 9, rate: 1.508, cost: 1050 },
-    { dmg: "4x10", range: 9.5, rate: 1.258, cost: 3000 },
-    { dmg: "8x12", range: 11, rate: 1.008, cost: 8500 }
+    { dmg: "1x8", range: 7.5, rate: 2.008, cost: 800 },
+    { dmg: "1x8", range: 7.5, rate: 1.508, cost: 300 },
+    { dmg: "2x10", range: 9, rate: 1.508, cost: 1200 },
+    { dmg: "4x10", range: 9.5, rate: 1.258, cost: 3400 },
+    { dmg: "8x12", range: 10, rate: 1.008, cost: 9500}
   ],
   Militant: [
     { dmg: 1, range: 13, rate: 0.208, cost: 600 },
@@ -144,8 +144,8 @@ export const TOWER_LEVELS = {
     { dmg: 0, range: 20, rate: 0, cost: 15000 }
   ],
   Farm: [
-    { dmg: 0, range: 0, rate: 0, cost: 300 },
-    { dmg: 0, range: 0, rate: 0, cost: 250 },
+    { dmg: 0, range: 0, rate: 0, cost: 275 },
+    { dmg: 0, range: 0, rate: 0, cost: 225 },
     { dmg: 0, range: 0, rate: 0, cost: 500 },
     { dmg: 0, range: 0, rate: 0, cost: 1050 },
     { dmg: 0, range: 0, rate: 0, cost: 2100 },
@@ -182,11 +182,11 @@ export const TOWER_LEVELS = {
     { dmg: 22, range: 35, rate: 0.158, cost: 25000 }
   ],
   "Crook Boss": [
-    { dmg: 10, range: 14, rate: 0.908, cost: 1800 },
-    { dmg: 12, range: 14, rate: 0.608, cost: 1200 },
-    { dmg: 24, range: 17, rate: 0.608, cost: 3650 },
-    { dmg: 24, range: 18.5, rate: 0.18, cost: 13750 },
-    { dmg: 28, range: 18.5, rate: 0.128, cost: 30000 }
+    { dmg: 10, range: 15, rate: 0.908, cost: 1800 },
+    { dmg: 12, range: 15, rate: 0.608, cost: 1200 },
+    { dmg: 25, range: 17.5, rate: 0.608, cost: 3650 },
+    { dmg: 25, range: 22, rate: 0.18, cost: 13750 },
+    { dmg: 45, range: 22, rate: 0.128, cost: 52000 }
   ],
   Commander: [
     { dmg: 0, range: 10, rate: 0, cost: 650 },
@@ -341,18 +341,18 @@ export const TOWER_LEVELS = {
   ],
   "Golden Pyromancer": [
     { dmg: 1, range: 7, rate: 0.258, cost: 800 },
-    { dmg: 1, range: 9, rate: 0.258, cost: 350 },
+    { dmg: 1, range: 9, rate: 0.258, cost: 850 },
     { dmg: 2, range: 9, rate: 0.258, cost: 1000 },
     { dmg: 3, range: 10, rate: 0.258, cost: 1800 },
     { dmg: 4, range: 10, rate: 0.258, cost: 4600 },
     { dmg: 8, range: 12, rate: 0.258, cost: 10000 }
   ],
   "Golden Crook Boss": [
-    { dmg: 12, range: 15, rate: 0.808, cost: 2250 },
-    { dmg: 14, range: 15, rate: 0.558, cost: 1325 },
-    { dmg: 25, range: 17.5, rate: 0.558, cost: 3750 },
-    { dmg: 25, range: 21, rate: 0.158, cost: 18500 },
-    { dmg: 36, range: 21, rate: 0.128, cost: 35000 }
+    { dmg: 12, range: 16.5, rate: 0.858, cost: 2250 },
+    { dmg: 14, range: 16.5, rate: 0.558, cost: 1325 },
+    { dmg: 25, range: 19, rate: 0.558, cost: 3750 },
+    { dmg: 25, range: 23, rate: 0.158, cost: 17000 },
+    { dmg: 50, range: 23, rate: 0.128, cost: 54000 }
   ],
   "Golden Scout": [
     { dmg: 2, range: 14, rate: 0.808, cost: 250 },
